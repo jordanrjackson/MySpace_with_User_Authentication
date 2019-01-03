@@ -1,14 +1,15 @@
 import { combineReducers } from 'redux';
-import users from './users';
+import user from './user';
 import flash from './flash';
 import posts from './posts';
-import user from './user';
+import users from './users';
+import 'semantic-ui-css/semantic.min.css';
 
 const rootReducer = combineReducers({
   user,
-  users,
   posts,
-  flash
+  flash,
+  users,
 });
 
 export default rootReducer;

@@ -12,6 +12,4 @@ class Api::UsersController < ApplicationController
     current_user.add_friend << User.find(params[:id]).name
     current_user.save
   end
-
-  
 end

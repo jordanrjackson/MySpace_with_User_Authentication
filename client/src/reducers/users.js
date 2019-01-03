@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { setHeaders } from './headers'
 const USERS = 'USERS'
 const ADD_USER = 'ADD_USER'
 const DELETE_USER = 'DELETE_USER'
@@ -8,6 +9,8 @@ export const getUsers = () => {
     axios.get('/api/my_friends')
       .then( res => {
         dispatch({ type: USERS, users: res.data })
+        const { headers } = res;
+        dispatch(setHeaders(headers));
       })
   }
 }
@@ -39,4 +42,4 @@ export default (state = [], action) => {
     default:
       return state
   }
-}
+};

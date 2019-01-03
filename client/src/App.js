@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import FetchUser from "./components/FetchUser";
+import ViewUsers from './components/ViewUsers';
+import ViewPosts from './components/ViewPosts';
 import ProtectedRoute from "./components/ProtectedRoute";
 import { Container, } from "semantic-ui-react";
 import { Switch, Route, } from "react-router-dom";
@@ -13,9 +15,11 @@ const App = () => (
   <Fragment>
     <Navbar />
     <FetchUser>
-      <Container>
+      <Container style={{ paddingTop: "20px", }}>
         <Switch>
-          <ProtectedRoute exact path="/" component={Home} />
+          <Route exact path="/" component={Home} />
+          <ProtectedRoute extact path="/users" component={ViewUsers} />
+          <ProtectedRoute extact path="/postfeed" component={ViewPosts} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route component={NoMatch} />
